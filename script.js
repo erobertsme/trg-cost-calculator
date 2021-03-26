@@ -4,6 +4,8 @@ const output = aduCalculator.querySelector('.output h2')
 
 const [master, kitchen, bathroom, ...rest] = inputRangeArr;
 
+const range = 3000;
+
 const sqftPrices = {
   'master': {
     0: 250,
@@ -39,7 +41,7 @@ const calculateEstimate = () => {
 
   const total = totals.reduce( (accum, item) => accum + item);
 
-  output.innerText = `${total - 3000 < 0 ? 0 : total - 3000} - ${total + 3000}`;
+  output.innerText = `${total - range < 0 ? 0 : total - range} - ${total + range}`;
 }
 
 inputRangeArr.forEach( input => {

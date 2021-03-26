@@ -42,7 +42,7 @@ const calculateEstimate = () => {
 
 inputRangeArr.forEach( input => {
   input.value = 0;
-  input.addEventListener('change', calculateEstimate);
+  input.addEventListener('input', calculateEstimate);
 } );
 
 //Keep Range and number inputs synced
@@ -50,12 +50,12 @@ inputRangeArr.forEach( element => {
 	//Set the number input field to match the range input field on load
 	element.nextElementSibling.value = element.value;
 	//Set the number input field to match the range input field after each update
-	element.addEventListener('change', event => {
+	element.addEventListener('input', event => {
   	element.nextElementSibling.value = element.value;
   })
 	//Set the range input field to match the number input field after each update and send update event
-	element.nextElementSibling.addEventListener('change', event => {
+	element.nextElementSibling.addEventListener('input', event => {
   	element.value = event.target.value;
-    element.dispatchEvent(new Event('change'));
+    element.dispatchEvent(new Event('input'));
   })
 })

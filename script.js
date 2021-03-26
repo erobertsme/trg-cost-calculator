@@ -24,7 +24,7 @@ const getSqftPrice = (name, value) => {
   const keys = Object.keys( sqftPrices[name] ).sort();
 
   while (keys.length > 0) {
-    let key = keys.pop();
+    const key = keys.pop();
     if (key <= value) return sqftPrices[name][key];
   }
 }
@@ -37,7 +37,9 @@ const calculateEstimate = () => {
     return value * getSqftPrice(pricingKey, value);
   })
 
-  output.innerText = totals.reduce( (accum, item) => accum + item);
+  const total = totals.reduce( (accum, item) => accum + item);
+
+  output.innerText = `${total - 3000 < 0 ? 0 : total - 3000} - ${total + 3000}`;
 }
 
 inputRangeArr.forEach( input => {

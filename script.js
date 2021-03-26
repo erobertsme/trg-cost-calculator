@@ -41,7 +41,7 @@ const calculateEstimate = () => {
 
   const total = totals.reduce( (accum, item) => accum + item);
 
-  output.innerText = `${total - range < 0 ? 0 : total - range} - ${total + range}`;
+  output.innerText = `$${total - range < 0 ? 0 : total - range} - $${total + range}`;
 }
 
 inputRangeArr.forEach( input => {

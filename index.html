@@ -13,16 +13,30 @@
     <img src="https://theremodelgroup.com/wp-content/uploads/2019/02/TRG-Logo-crop.png" alt="">
   </div>
   <div id="adu-calculator">
+
     <div class="field-group">
-      <label for="Additional Sqft">Additional Square Ft.</label>
-      <input name="Additional Sqft" type="range" step="10" min="100" max="3000">
+      <label for="master-sqft">Master Suite Remodel</label>
+      <input name="master-sqft" data-key="master" type="range" step="10" max="3000">
       <input type="number" step="10" min="100" max="3000">
     </div>
-    <div class="output">
-      <div>Cost per sqft: <h2></h2></div>
-      <label for="estimate">Estimated Cost</label>
-      <input name="estimate" type="number" disabled>
+
+    <div class="field-group">
+      <label for="kitchen-sqft">Kitchen Remodel</label>
+      <input name="kitchen-sqft" data-key="kitchen" type="range" step="10" max="3000">
+      <input type="number" step="10" min="100" max="3000">
     </div>
+
+    <div class="field-group">
+      <label for="bath-sqft">Bathroom Remodel</label>
+      <input name="bath-sqft" data-key="bathroom" type="range" step="10" max="3000">
+      <input type="number" step="10" min="100" max="3000">
+    </div>
+
+    <div class="output">
+      <h3>Estimated Cost</h3>
+      <h2></h2>
+    </div>
+
   </div>
   <script src="/script.js"></script>
 </body>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo: The Remodel Group</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="img">
+    <img src="https://theremodelgroup.com/wp-content/uploads/2019/02/TRG-Logo-crop.png" alt="">
+  </div>
+  <div id="adu-calculator">
+    <div class="field-group">
+      <label for="Additional Sqft">Additional Square Ft.</label>
+      <input name="Additional Sqft" type="range" step="10" min="100" max="3000">
+      <input type="number" step="10" min="100" max="3000">
+    </div>
+    <div class="output">
+      <div>Cost per sqft: <h2></h2></div>
+      <label for="estimate">Estimated Cost</label>
+      <input name="estimate" type="number" disabled>
+    </div>
+  </div>
+  <script src="/script.js"></script>
+</body>
+</html>

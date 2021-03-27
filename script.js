@@ -32,7 +32,7 @@ const getSqftPrice = (name, value) => {
 }
 
 const calculateEstimate = () => {
-	const totals = Array.from(inputRangeArr).map( input => {
+  const totals = Array.from(inputRangeArr).map( input => {
     const value = parseInt(input.value);
     const pricingKey = input.dataset.key;
 
@@ -51,15 +51,15 @@ inputRangeArr.forEach( input => {
 
 //Keep Range and number inputs synced
 inputRangeArr.forEach( element => {
-	//Set the number input field to match the range input field on load
-	element.nextElementSibling.value = element.value;
-	//Set the number input field to match the range input field after each update
-	element.addEventListener('input', event => {
-  	element.nextElementSibling.value = element.value;
+  //Set the number input field to match the range input field on load
+  element.nextElementSibling.value = element.value;
+  //Set the number input field to match the range input field after each update
+  element.addEventListener('input', event => {
+    element.nextElementSibling.value = element.value;
   })
-	//Set the range input field to match the number input field after each update and send update event
-	element.nextElementSibling.addEventListener('input', event => {
-  	element.value = event.target.value;
+  //Set the range input field to match the number input field after each update and send update event
+  element.nextElementSibling.addEventListener('input', event => {
+    element.value = event.target.value;
     element.dispatchEvent(new Event('input'));
   })
 })

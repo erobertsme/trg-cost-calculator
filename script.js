@@ -32,34 +32,43 @@ const getSqftPrice = (name, value) => {
 }
 
 const calculateEstimate = () => {
-  const totals = Array.from(inputRangeArr).map( input => {
-    const value = parseInt(input.value);
-    const pricingKey = input.dataset.key;
+  // Create array of totals for each input
+  const totals = Array.from(inputRangeArr)
+    .map(input => {
+      const value = parseInt(input.value);
+      const pricingKey = input.dataset.key;
 
-    return value * getSqftPrice(pricingKey, value);
-  })
+      return value * getSqftPrice(pricingKey, value);
+    })
 
-  const total = totals.reduce( (accum, item) => accum + item);
+  // Add all totals in array together
+  const total = totals.reduce( (accum, item) => accum + item );
 
+  // Output the total +- the range, but don't let the lowest number fall below 0
   output.innerText = `$${total - range < 0 ? 0 : total - range} - $${total + range}`;
 }
 
+// Add event listener to each range input to run calculator in input event
 inputRangeArr.forEach( input => {
   input.value = 0;
   input.addEventListener('input', calculateEstimate);
-} );
+});
 
-//Keep Range and number inputs synced
+// Keep all range and number inputs synced
 inputRangeArr.forEach( element => {
-  //Set the number input field to match the range input field on load
+  // Set the number input field to match the range input field on load
   element.nextElementSibling.value = element.value;
-  //Set the number input field to match the range input field after each update
+
+  // Number input: if the range input is changed, set the number input to the same value
   element.addEventListener('input', event => {
     element.nextElementSibling.value = element.value;
   })
-  //Set the range input field to match the number input field after each update and send update event
+
+  // Range input: if the number input is changed, set the range input to the same value
   element.nextElementSibling.addEventListener('input', event => {
     element.value = event.target.value;
+
+    // Dispatch event on the range input to run calculator
     element.dispatchEvent(new Event('input'));
   })
 })

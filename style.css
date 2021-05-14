@@ -28,6 +28,7 @@ img {
 }
 .field-group, .output {
   display: flex;
+  width: 40em;
   flex-wrap: wrap;
 }
 .field-group label, .output label {
@@ -41,6 +42,7 @@ img {
 .field-group input[type=number] {
   display: inline-block;
   flex: 1 1 20%;
+  margin-left: 1em;
 }
 .output {
   padding: 2em;

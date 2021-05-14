@@ -25,10 +25,10 @@ img {
 #adu-calculator {
   padding: 2em;
   background-color: #333;
+  width: 40%;
 }
 .field-group, .output {
   display: flex;
-  width: 40em;
   flex-wrap: wrap;
 }
 .field-group label, .output label {

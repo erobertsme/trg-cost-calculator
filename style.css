@@ -25,7 +25,7 @@ img {
 #adu-calculator {
   padding: 2em;
   background-color: #333;
-  width: 40%;
+  width: 50%;
 }
 .field-group, .output {
   display: flex;

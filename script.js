@@ -9,15 +9,22 @@ const range = 3000;
 const sqftPrices = {
   'master': {
     0: 250,
-    500: 300
+    500: 225,
+    650: 200,
+    700: 180,
+    800: NaN
   },
   'kitchen': {
-    0: 275,
-    500: 300
+    0: 220,
+    250: 200,
+    350: 180,
+    500: 150,
+    800: NaN
   },
   'bathroom': {
-    0: 200,
-    500: 275
+    0: 220,
+    250: 200,
+    500: NaN
   }
 }
 
@@ -44,8 +51,8 @@ const calculateEstimate = () => {
   // Add all totals in array together
   const total = totals.reduce( (accum, item) => accum + item );
 
-  // Output the total +- the range, but don't let the lowest number fall below 0
-  output.innerText = `$${total - range < 0 ? 0 : total - range} - $${total + range}`;
+  // Output the total +- the range, but don't let the lowest number fall below 0, if total is NaN output text
+  output.innerText = !isNaN(total) ? `$${total - range < 0 ? 0 : total - range} - $${total + range}` : 'Please call for a quote.';
 }
 
 // Add event listener to each range input to run calculator in input event
